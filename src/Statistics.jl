@@ -103,6 +103,9 @@ julia> mean(√, [1 2 3; 4 5 6], dims=2)
 """
 mean(f, A::AbstractArray; dims=:) = _mean(f, A, dims)
 
+mean(x::Number, y::Number) = throw(ArgumentError("mean(f, itr) requires a function and an iterable.
+                                                  Perhaps you meant middle(x, y)?"))
+
 """
     mean!(r, v)
 
